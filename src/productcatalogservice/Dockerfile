@@ -10,6 +10,9 @@ WORKDIR /go/src/$PROJECT
 COPY Gopkg.* ./
 RUN dep ensure --vendor-only -v
 
+# Datadog Tracing Instrumentation
+RUN go get gopkg.in/DataDog/dd-trace-go.v1/ddtrace
+
 COPY . .
 RUN go build -o /productcatalogservice .
 

@@ -12,6 +12,9 @@ RUN dep ensure --vendor-only -v
 COPY . .
 RUN go install .
 
+# Datadog Tracing Instrumentation
+RUN go get gopkg.in/DataDog/dd-trace-go.v1/ddtrace
+
 FROM alpine as release
 RUN apk add --no-cache ca-certificates \
     busybox-extras net-tools bind-tools

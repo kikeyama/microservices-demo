@@ -29,5 +29,9 @@ RUN GRPC_HEALTH_PROBE_VERSION=v0.2.1 && \
 WORKDIR /app
 COPY --from=builder /app .
 
+# Download Datadog Java Tracer
+wget -O dd-java-agent.jar 'https://search.maven.org/classic/remote_content?g=com.datadoghq&a=dd-java-agent&v=LATEST'
+
 EXPOSE 9555
-ENTRYPOINT ["/app/build/install/hipstershop/bin/AdService"]
+# ENTRYPOINT ["/app/build/install/hipstershop/bin/AdService"]
+ENTRYPOINT ["/usr/bin/java", "-javaagent:/path/to/the/dd-java-agent.jar", "/app/build/install/hipstershop/bin/AdService"]
