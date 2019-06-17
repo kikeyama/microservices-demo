@@ -34,4 +34,4 @@ RUN wget -O dd-java-agent.jar 'https://search.maven.org/classic/remote_content?g
 
 EXPOSE 9555
 # ENTRYPOINT ["/app/build/install/hipstershop/bin/AdService"]
-ENTRYPOINT ["/usr/local/openjdk-8/jre/bin/java", "-javaagent:/path/to/the/dd-java-agent.jar", "/app/build/install/hipstershop/bin/AdService"]
+ENTRYPOINT ["/app/build/install/hipstershop/bin/AdService", "-javaagent:/path/to/the/dd-java-agent.jar"]
