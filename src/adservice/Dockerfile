@@ -30,7 +30,7 @@ WORKDIR /app
 COPY --from=builder /app .
 
 # Download Datadog Java Tracer
-RUN wget -O dd-java-agent.jar 'https://search.maven.org/classic/remote_content?g=com.datadoghq&a=dd-java-agent&v=LATEST'
+RUN wget -O dd-java-agent.jar 'https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=com.datadoghq&a=dd-java-agent&v=LATEST'
 
 EXPOSE 9555
 # ENTRYPOINT ["/app/build/install/hipstershop/bin/AdService"]
